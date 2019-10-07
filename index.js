@@ -1,4 +1,3 @@
-let oath = oath || {}
 // {HTMLElement} - video tag
 let video = document.querySelector('#video');
 
