@@ -5,39 +5,47 @@ let video = document.querySelector('#video');
 let slot = document.querySelector('#ad-slot');
 let adManager;
 
-function onAdReadyToPlay() {
-    adManager.play();
-    console.log('ad is loaded and ready to be played')
+const vrmResponseReady = event => {
+    console.log('vrm reponse loaded');
+    event.data.ad ? adsFound() : noAdsFound();
 }
 
-function onAdStarted() {
+const adsFound = () => {
+    console.log('Ads found - playback starting');
+    adManager.play()
+}
+const noAdsFound  = () =>  {
+    console.log('No ads found - terminate logic accordignly');
+}
+
+const onAdStarted = () => {
     console.log('ad has started playing')
 }
 
-function onAdPaused() {
+const onAdPaused = () => {
     console.log('ad has paused')
 }
 
-function onAdResumed() {
+const onAdResumed = () => {
     console.log('ad has resumed playback')
 }
 
-function onAdTimeupdate() {
+const onAdTimeupdate = () => {
     console.log('ad current time updated')
 }
 
-function onAdVolumeChanged() {
+const onAdVolumeChanged = () => {
     console.log('ad volume has changed')
 }
 
-function onAdFinished() {
+const onAdFinished  = () => {
     console.log('ad has ended')
 }
 
-function onSDKReady(manager) {
+const onSDKReady = (manager) => {
     adManager = manager;
     // Bind listeners to ad manager events
-    adManager.addEventListener(oath.ads.sdk.SDKEvent.LOADED, onAdReadyToPlay);
+    adManager.addEventListener(oath.ads.sdk.SDKEvent.LOADED, vrmResponseReady);
     adManager.addEventListener(oath.ads.sdk.AdEvent.STARTED, onAdStarted);
     adManager.addEventListener(oath.ads.sdk.AdEvent.PAUSED, onAdPaused);
     adManager.addEventListener(oath.ads.sdk.AdEvent.RESUMED, onAdResumed);
