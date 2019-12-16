@@ -59,7 +59,7 @@ function onSDKReady(manager) {
     // Start loading ads
     adManager.load({
         currentVideo: {
-	    id: "594bb77d8c08e02ab34761a1"
+	    id: "5a7ab4ff8c08e076e11963a4"
         }
     });
 }
@@ -67,8 +67,8 @@ function onSDKReady(manager) {
 oath.ads.sdk.createAdManager({
     video: video,
     slot: slot,
-    buyerCompanyId: '50d595ec0364e95588c77bd2',
-    playerId: '5912acc731e0a563e7535e52'
+    buyerCompanyId: '56d5921ce4b0f5991ad44713',
+    playerId: '5cee356eb8bad37091b71f52'
 }).then(onSDKReady);
 ```
 
